@@ -7,12 +7,13 @@
 //
 
 #import "MoviesListViewController.h"
-#import "Movie.h"
 
 @interface MoviesListViewController()
 
 @property (strong, nonatomic) NSMutableArray *movies;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *nibObjects;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -20,54 +21,36 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self initialize];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
-    [self.tableView reloadData];
+    UINib *movieCellNib = [UINib nibWithNibName:@"MovieListCellView" bundle:nil];
+    [self.tableView registerNib:movieCellNib forCellReuseIdentifier:@"MovieCell"];
 }
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:@"MoviesListView" bundle:nibBundleOrNil];
-    if (self) {
-        [self initialize];
-    }
-    return self;
-}
-
-#pragma - private methods
 
 -(void) initialize {
     self.movies = [[NSMutableArray alloc] init];
     [self getData];
 }
 
-- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.movies count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"movieCell";
-    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    Movie *movie;
-
-    if (!cell) {
-        NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"MovieListCellView" owner:nil options:nil];
-        cell = [nibObjects objectAtIndex:0];
-    }
+    static NSString *cellIdentifier = @"MovieCell";
+    MovieCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (self.movies.count > 0) {
-        movie = self.movies[indexPath.row];
-        
-        // set the cell attributes
-        cell.titleLabel.text = movie.title;
-    }
+    Movie *movie = self.movies[indexPath.row];
+    
+    // set the cell attributes
+    cell.titleLabel.text = movie.title;
+    cell.synopsisLabel.text = movie.synopsis;
     
     return cell;
 }
 
 -(void) getData {
+    
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=87mrtv95egu4cfx6s6x9yqm8";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];

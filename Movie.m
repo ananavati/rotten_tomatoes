@@ -25,7 +25,7 @@
 		self.movie = movie;
         
 		[self setTitle:self.movie[@"title"]];
-//		[self setSynopsis:self.movie[@"synopsis"]];
+		[self setSynopsis:self.movie[@"synopsis"]];
 //		[self setThumbUrl:self.movie[@"posters"][@"profile"]];
 //		[self setPosterUrl:self.movie[@"posters"][@"original"]];
 //        

@@ -11,6 +11,7 @@
 @interface Movie : NSObject
 
 @property (weak, nonatomic) NSString *title;
+@property (weak, nonatomic) NSString *synopsis;
 
 - (Movie *)initWithDictionary: (NSDictionary *)movie;
 
