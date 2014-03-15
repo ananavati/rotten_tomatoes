@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "MBProgressHUD.h"
+#import "Toast+UIView.h"
+
 #import "MovieCell.h"
 #import "Movie.h"
-#import "ImageView.h"
+//#import "ImageView.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -11,25 +11,43 @@
 @interface MoviesListViewController()
 
 @property (strong, nonatomic) NSMutableArray *movies;
-@property (strong, nonatomic) NSArray *nibObjects;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+- (void)onRefresh:(id)sender forState:(UIControlState)state;
 
 @end
 
 @implementation MoviesListViewController
 
+- (void)onRefresh:(id)sender forState:(UIControlState)state {
+    [self getData];
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
-    [self initialize];
     
-    UINib *movieCellNib = [UINib nibWithNibName:@"MovieListCellView" bundle:nil];
-    [self.tableView registerNib:movieCellNib forCellReuseIdentifier:@"MovieCell"];
+    [self initialize];
 }
 
 -(void) initialize {
     self.movies = [[NSMutableArray alloc] init];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector( onRefresh:forState: ) forControlEvents:UIControlEventValueChanged];
+    
+    // not sure if this is the right way to add refresh control
+    [self.tableView addSubview:self.refreshControl];
+    
+    UINib *movieCellNib = [UINib nibWithNibName:@"MovieListCellView" bundle:nil];
+    [self.tableView registerNib:movieCellNib forCellReuseIdentifier:@"MovieCell"];
+    
     [self getData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -62,6 +80,7 @@
 }
 
 -(void) getData {
+    self.hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=87mrtv95egu4cfx6s6x9yqm8";
     
@@ -81,6 +100,8 @@
         
         [self.tableView reloadData];
         
+        [self.hud hide:YES];
+		[self.refreshControl endRefreshing];
     }];
 }
 
