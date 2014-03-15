@@ -19,6 +19,11 @@
 		17039B8F18D3FEC7007DECB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17039B7718D3FEC7007DECB4 /* UIKit.framework */; };
 		17039B9718D3FEC7007DECB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17039B9518D3FEC7007DECB4 /* InfoPlist.strings */; };
 		17039B9918D3FEC7007DECB4 /* rotten_tomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039B9818D3FEC7007DECB4 /* rotten_tomatoesTests.m */; };
+		17039BA318D3FF26007DECB4 /* MoviesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17039BA218D3FF26007DECB4 /* MoviesListView.xib */; };
+		17039BA918D4001D007DECB4 /* MoviesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BA818D4001D007DECB4 /* MoviesListViewController.m */; };
+		17039BED18D4260E007DECB4 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BEC18D4260E007DECB4 /* MovieCell.m */; };
+		17039BF018D43E50007DECB4 /* MovieListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17039BEF18D43E50007DECB4 /* MovieListCellView.xib */; };
+		17039BF318D44349007DECB4 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF218D44349007DECB4 /* Movie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,14 @@
 		17039B9418D3FEC7007DECB4 /* rotten_tomatoesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rotten_tomatoesTests-Info.plist"; sourceTree = "<group>"; };
 		17039B9618D3FEC7007DECB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17039B9818D3FEC7007DECB4 /* rotten_tomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rotten_tomatoesTests.m; sourceTree = "<group>"; };
+		17039BA218D3FF26007DECB4 /* MoviesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesListView.xib; sourceTree = "<group>"; };
+		17039BA718D4001D007DECB4 /* MoviesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesListViewController.h; sourceTree = "<group>"; };
+		17039BA818D4001D007DECB4 /* MoviesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesListViewController.m; sourceTree = "<group>"; };
+		17039BEB18D4260E007DECB4 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		17039BEC18D4260E007DECB4 /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		17039BEF18D43E50007DECB4 /* MovieListCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieListCellView.xib; sourceTree = "<group>"; };
+		17039BF118D44349007DECB4 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		17039BF218D44349007DECB4 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +90,10 @@
 		17039B6718D3FEC7007DECB4 = {
 			isa = PBXGroup;
 			children = (
+				17039BEE18D43E26007DECB4 /* resources */,
+				17039BA618D3FF38007DECB4 /* controllers */,
+				17039BA518D3FF33007DECB4 /* models */,
+				17039BA418D3FF2D007DECB4 /* views */,
 				17039B7918D3FEC7007DECB4 /* rotten_tomatoes */,
 				17039B9218D3FEC7007DECB4 /* rotten_tomatoesTests */,
 				17039B7218D3FEC7007DECB4 /* Frameworks */,
@@ -142,6 +159,42 @@
 				17039B9518D3FEC7007DECB4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17039BA418D3FF2D007DECB4 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				17039BEB18D4260E007DECB4 /* MovieCell.h */,
+				17039BEC18D4260E007DECB4 /* MovieCell.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		17039BA518D3FF33007DECB4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				17039BF118D44349007DECB4 /* Movie.h */,
+				17039BF218D44349007DECB4 /* Movie.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		17039BA618D3FF38007DECB4 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17039BA718D4001D007DECB4 /* MoviesListViewController.h */,
+				17039BA818D4001D007DECB4 /* MoviesListViewController.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		17039BEE18D43E26007DECB4 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				17039BA218D3FF26007DECB4 /* MoviesListView.xib */,
+				17039BEF18D43E50007DECB4 /* MovieListCellView.xib */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17039B7E18D3FEC7007DECB4 /* InfoPlist.strings in Resources */,
+				17039BF018D43E50007DECB4 /* MovieListCellView.xib in Resources */,
 				17039B8618D3FEC7007DECB4 /* Images.xcassets in Resources */,
+				17039BA318D3FF26007DECB4 /* MoviesListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +296,9 @@
 			files = (
 				17039B8418D3FEC7007DECB4 /* AppDelegate.m in Sources */,
 				17039B8018D3FEC7007DECB4 /* main.m in Sources */,
+				17039BF318D44349007DECB4 /* Movie.m in Sources */,
+				17039BED18D4260E007DECB4 /* MovieCell.m in Sources */,
+				17039BA918D4001D007DECB4 /* MoviesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +420,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rotten_tomatoes/rotten_tomatoes-Prefix.pch";
 				INFOPLIST_FILE = "rotten_tomatoes/rotten_tomatoes-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -375,6 +434,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rotten_tomatoes/rotten_tomatoes-Prefix.pch";
 				INFOPLIST_FILE = "rotten_tomatoes/rotten_tomatoes-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -441,6 +501,7 @@
 				17039B9E18D3FEC7007DECB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17039B9F18D3FEC7007DECB4 /* Build configuration list for PBXNativeTarget "rotten_tomatoesTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +510,7 @@
 				17039BA118D3FEC7007DECB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,13 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "MoviesListViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    // initialize the nav bar and the view
+    MoviesListViewController *view = [[MoviesListViewController alloc] init];
+    UINavigationController *navView = [[UINavigationController alloc] initWithRootViewController:view];
+    self.window.rootViewController = navView;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
