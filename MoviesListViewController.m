@@ -42,9 +42,20 @@
     
     Movie *movie = self.movies[indexPath.row];
     
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:movie.thumbUrl, indexPath.row]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    
     // set the cell attributes
     cell.titleLabel.text = movie.title;
     cell.synopsisLabel.text = movie.synopsis;
+    
+    [cell.movieImageView setImageWithURLRequest:urlRequest
+                               placeholderImage:nil
+                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                            cell.movieImageView.image = image;
+                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                            NSLog(@"Failed to download image: %@", error);
+                                        }];
     
     return cell;
 }
@@ -71,5 +82,9 @@
         
     }];
 }
+
+#pragma mark - ImageDownloadLogic
+
+
 
 @end

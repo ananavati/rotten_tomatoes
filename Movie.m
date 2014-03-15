@@ -26,16 +26,22 @@
         
 		[self setTitle:self.movie[@"title"]];
 		[self setSynopsis:self.movie[@"synopsis"]];
-//		[self setThumbUrl:self.movie[@"posters"][@"profile"]];
-//		[self setPosterUrl:self.movie[@"posters"][@"original"]];
-//        
-//		self.castMembers = [[NSMutableArray alloc] init];
-//		for (NSDictionary *cast in self.movie[@"abridged_cast"]) {
-//			[self.castMembers addObject:cast[@"name"]];
-//		}
+		[self setThumbUrl:self.movie[@"posters"][@"profile"]];
+		[self setPosterUrl:self.movie[@"posters"][@"original"]];
+
+		self.castMembers = [[NSMutableArray alloc] init];
+		for (NSDictionary *cast in self.movie[@"abridged_cast"]) {
+			[self.castMembers addObject:cast[@"name"]];
+		}
 	}
     
 	return self;
 }
+
+- (NSString *)castText
+{
+	return [self.castMembers componentsJoinedByString:@", "];
+}
+
 
 @end

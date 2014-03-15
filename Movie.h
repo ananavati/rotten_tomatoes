@@ -13,6 +13,10 @@
 @property (weak, nonatomic) NSString *title;
 @property (weak, nonatomic) NSString *synopsis;
 
+@property (weak, nonatomic) NSString *thumbUrl;
+@property (weak, nonatomic) NSString *posterUrl;
+
 - (Movie *)initWithDictionary: (NSDictionary *)movie;
+- (NSString *)castText;
 
 @end
