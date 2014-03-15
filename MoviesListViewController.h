@@ -13,8 +13,7 @@
 
 #import "MovieCell.h"
 #import "Movie.h"
-//#import "ImageView.h"
-#import "UIImageView+AFNetworking.h"
+#import "ImageView.h"
 
 @interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
