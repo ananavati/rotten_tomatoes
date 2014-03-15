@@ -83,8 +83,4 @@
     }];
 }
 
-#pragma mark - ImageDownloadLogic
-
-
-
 @end

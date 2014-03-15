@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Arpan Nanavati. All rights reserved.
 //
 
-#import "MovieImageView.h"
+#import "ImageView.h"
 
-@interface MovieImageView()
+@interface ImageView()
 
 @property (strong, nonatomic) NSString* filePath;
 
 @end
 
-@implementation MovieImageView
+@implementation ImageView
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MovieCell.h"
 #import "Movie.h"
-#import "MovieImageView.h"
-//#import "UIImageView+AFNetworking.h"
+#import "ImageView.h"
 
 @interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -1,5 +1,5 @@
 //
-//  MovieImageView.h
+//  ImageView.h
 //  rotten_tomatoes
 //
 //  Created by Arpan Nanavati on 3/15/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "UIImageView+AFNetworking.h"
 
-@interface MovieImageView : UIImageView
+@interface ImageView : UIImageView
 
 @end

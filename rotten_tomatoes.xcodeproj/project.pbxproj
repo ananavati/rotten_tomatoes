@@ -25,7 +25,7 @@
 		17039BF018D43E50007DECB4 /* MovieListCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17039BEF18D43E50007DECB4 /* MovieListCellView.xib */; };
 		17039BF318D44349007DECB4 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF218D44349007DECB4 /* Movie.m */; };
 		17039BF518D4EBBA007DECB4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 17039BF418D4EBBA007DECB4 /* Podfile */; };
-		17039BF818D509FA007DECB4 /* MovieImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF718D509FA007DECB4 /* MovieImageView.m */; };
+		17039BF818D509FA007DECB4 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF718D509FA007DECB4 /* ImageView.m */; };
 		CA30FAECE37849098FAE3EAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233F606B44849F89E0200DF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +66,8 @@
 		17039BF118D44349007DECB4 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		17039BF218D44349007DECB4 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		17039BF418D4EBBA007DECB4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
-		17039BF618D509FA007DECB4 /* MovieImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieImageView.h; sourceTree = "<group>"; };
-		17039BF718D509FA007DECB4 /* MovieImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieImageView.m; sourceTree = "<group>"; };
+		17039BF618D509FA007DECB4 /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
+		17039BF718D509FA007DECB4 /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		A1D53469098F4D79BE3371A4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +99,7 @@
 		17039B6718D3FEC7007DECB4 = {
 			isa = PBXGroup;
 			children = (
+				17039BF918D50D17007DECB4 /* lib */,
 				17039BEE18D43E26007DECB4 /* resources */,
 				17039BA618D3FF38007DECB4 /* controllers */,
 				17039BA518D3FF33007DECB4 /* models */,
@@ -178,8 +179,6 @@
 			children = (
 				17039BEB18D4260E007DECB4 /* MovieCell.h */,
 				17039BEC18D4260E007DECB4 /* MovieCell.m */,
-				17039BF618D509FA007DECB4 /* MovieImageView.h */,
-				17039BF718D509FA007DECB4 /* MovieImageView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -209,6 +208,15 @@
 				17039BEF18D43E50007DECB4 /* MovieListCellView.xib */,
 			);
 			name = resources;
+			sourceTree = "<group>";
+		};
+		17039BF918D50D17007DECB4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				17039BF618D509FA007DECB4 /* ImageView.h */,
+				17039BF718D509FA007DECB4 /* ImageView.m */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,7 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17039B8418D3FEC7007DECB4 /* AppDelegate.m in Sources */,
-				17039BF818D509FA007DECB4 /* MovieImageView.m in Sources */,
+				17039BF818D509FA007DECB4 /* ImageView.m in Sources */,
 				17039B8018D3FEC7007DECB4 /* main.m in Sources */,
 				17039BF318D44349007DECB4 /* Movie.m in Sources */,
 				17039BED18D4260E007DECB4 /* MovieCell.m in Sources */,
