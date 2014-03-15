@@ -48,6 +48,7 @@
     // set the cell attributes
     cell.titleLabel.text = movie.title;
     cell.synopsisLabel.text = movie.synopsis;
+    cell.castLabel.text = movie.castText;
     
     [cell.movieImageView setImageWithURLRequest:urlRequest
                                placeholderImage:nil
