@@ -24,12 +24,11 @@
     [super viewDidLoad];
     
     [self renderData];
-    
-//    NSLog(self.movie.title);
 }
 
 - (void) renderData {
     [self.navigationController showSGProgressWithDuration:10];
+    self.title = self.movie.title;
     
     self.synopsisLabel.text = self.movie.synopsis;
     self.castLabel.text = self.movie.castText;

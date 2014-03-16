@@ -23,6 +23,16 @@
 
 @implementation MoviesListViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        self.title = @"Movies";
+    }
+    return self;
+}
+
 - (void)onRefresh:(id)sender forState:(UIControlState)state {
     [self.refreshControl endRefreshing];
     
