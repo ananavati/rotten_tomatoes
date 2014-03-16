@@ -56,6 +56,30 @@
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 //    NSLog(@"tapped on row: %ld", indexPath.row);
+    NSArray *cells = [self.tableView visibleCells];
+    
+    UITableViewCell *currentcell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    for (UITableViewCell *cell in cells)
+    {
+        cell.backgroundColor = [UIColor whiteColor];
+        if ([cell isEqual:currentcell] == NO)
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.5];
+            cell.alpha = 0.5;
+            [UIView commitAnimations];
+        }
+        else
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDuration:0.5];
+            cell.alpha = 1.0;
+            cell.backgroundColor = [UIColor colorWithRed:243/255.0f green:156/255.0f blue:18/255.0f alpha:0.5f];
+            [UIView commitAnimations];
+        }
+        
+    }
 }
 
 // Tap on row accessory
