@@ -23,10 +23,10 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    [self renderData];
+    [self render];
 }
 
-- (void) renderData {
+- (void) render {
     // set the navbar title
     self.title = self.movie.title;
     
