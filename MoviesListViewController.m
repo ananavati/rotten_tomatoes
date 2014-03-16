@@ -45,6 +45,17 @@
     [self initialize];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    
+    NSArray *cells = [self.tableView visibleCells];
+    
+    for (UITableViewCell *cell in cells) {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+}
+
+
 -(void) initialize {
     self.movies = [[NSMutableArray alloc] init];
     
@@ -83,20 +94,23 @@
             [UIView commitAnimations];
         }
         else {
-            [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDuration:0.5];
-            cell.alpha = 1.0;
-            cell.backgroundColor = UIColorFromRGB(0xF39C12);
-            [UIView commitAnimations];
+            [UIView animateWithDuration:0.2f
+                                  delay:0.0f
+                                options:UIViewAnimationCurveEaseInOut
+                             animations:^{
+                                 cell.alpha = 1.0;
+                                 cell.backgroundColor = UIColorFromRGB(0xF39C12);
+                             }
+                             completion:^(BOOL finished) {
+                                 MovieDetailsViewController *detailsController = [[MovieDetailsViewController alloc] init];
+                                 
+                                 Movie *movie = self.movies[indexPath.row];
+                                 [detailsController setMovie:movie];
+                                 
+                                 [self.navigationController pushViewController:detailsController animated:YES];
+                             }];
         }
     }
-    
-    MovieDetailsViewController *detailsController = [[MovieDetailsViewController alloc] init];
-    
-    Movie *movie = self.movies[indexPath.row];
-    [detailsController setMovie:movie];
-    
-    [self.navigationController pushViewController:detailsController animated:YES];
 }
 
 // Tap on row accessory
