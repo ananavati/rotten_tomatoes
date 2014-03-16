@@ -28,6 +28,8 @@
 		17039BF818D509FA007DECB4 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF718D509FA007DECB4 /* ImageView.m */; };
 		17039BFF18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BFC18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m */; };
 		17039C0018D567E0007DECB4 /* UINavigationBarAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BFE18D567E0007DECB4 /* UINavigationBarAlert.m */; };
+		17039C0218D61643007DECB4 /* MovieDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17039C0118D61643007DECB4 /* MovieDetailsView.xib */; };
+		17039C0518D61839007DECB4 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039C0418D61839007DECB4 /* MovieDetailsViewController.m */; };
 		CA30FAECE37849098FAE3EAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233F606B44849F89E0200DF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,9 @@
 		17039BFC18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+UINavigationBarAlert.m"; sourceTree = "<group>"; };
 		17039BFD18D567E0007DECB4 /* UINavigationBarAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationBarAlert.h; sourceTree = "<group>"; };
 		17039BFE18D567E0007DECB4 /* UINavigationBarAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationBarAlert.m; sourceTree = "<group>"; };
+		17039C0118D61643007DECB4 /* MovieDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailsView.xib; sourceTree = "<group>"; };
+		17039C0318D61839007DECB4 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		17039C0418D61839007DECB4 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 		A1D53469098F4D79BE3371A4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +208,8 @@
 			children = (
 				17039BA718D4001D007DECB4 /* MoviesListViewController.h */,
 				17039BA818D4001D007DECB4 /* MoviesListViewController.m */,
+				17039C0318D61839007DECB4 /* MovieDetailsViewController.h */,
+				17039C0418D61839007DECB4 /* MovieDetailsViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -212,6 +219,7 @@
 			children = (
 				17039BA218D3FF26007DECB4 /* MoviesListView.xib */,
 				17039BEF18D43E50007DECB4 /* MovieListCellView.xib */,
+				17039C0118D61643007DECB4 /* MovieDetailsView.xib */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 				17039B7E18D3FEC7007DECB4 /* InfoPlist.strings in Resources */,
 				17039BF018D43E50007DECB4 /* MovieListCellView.xib in Resources */,
 				17039B8618D3FEC7007DECB4 /* Images.xcassets in Resources */,
+				17039C0218D61643007DECB4 /* MovieDetailsView.xib in Resources */,
 				17039BA318D3FF26007DECB4 /* MoviesListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17039B8418D3FEC7007DECB4 /* AppDelegate.m in Sources */,
+				17039C0518D61839007DECB4 /* MovieDetailsViewController.m in Sources */,
 				17039BF818D509FA007DECB4 /* ImageView.m in Sources */,
 				17039B8018D3FEC7007DECB4 /* main.m in Sources */,
 				17039BF318D44349007DECB4 /* Movie.m in Sources */,

@@ -14,6 +14,7 @@
 #import "MovieCell.h"
 #import "Movie.h"
 #import "ImageView.h"
+#import "MovieDetailsViewController.h"
 
 @interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -10,7 +10,7 @@
 
 @interface ImageView()
 
-@property (strong, nonatomic) NSString* filePath;
+@property (strong, nonatomic) NSString *filePath;
 
 @end
 

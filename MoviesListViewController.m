@@ -19,9 +19,13 @@
 
 @end
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
+
 @implementation MoviesListViewController
 
 - (void)onRefresh:(id)sender forState:(UIControlState)state {
+    [self.refreshControl endRefreshing];
+    
     [self getData];
 }
 
@@ -60,26 +64,29 @@
     
     UITableViewCell *currentcell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    for (UITableViewCell *cell in cells)
-    {
+    for (UITableViewCell *cell in cells) {
         cell.backgroundColor = [UIColor whiteColor];
-        if ([cell isEqual:currentcell] == NO)
-        {
+        if ([cell isEqual:currentcell] == NO) {
             [UIView beginAnimations:nil context:NULL];
             [UIView setAnimationDuration:0.5];
             cell.alpha = 0.5;
             [UIView commitAnimations];
         }
-        else
-        {
+        else {
             [UIView beginAnimations:nil context:NULL];
             [UIView setAnimationDuration:0.5];
             cell.alpha = 1.0;
-            cell.backgroundColor = [UIColor colorWithRed:243/255.0f green:156/255.0f blue:18/255.0f alpha:0.5f];
+            cell.backgroundColor = UIColorFromRGB(0xF39C12);
             [UIView commitAnimations];
         }
-        
     }
+    
+    MovieDetailsViewController *detailsController = [[MovieDetailsViewController alloc] init];
+    
+    Movie *movie = self.movies[indexPath.row];
+    [detailsController setMovie:movie];
+    
+    [self.navigationController pushViewController:detailsController animated:YES];
 }
 
 // Tap on row accessory
@@ -139,7 +146,6 @@
             
             [self.navigationController.navigationBar hideAlert];
             [self.navigationController finishSGProgress];
-            [self.refreshControl endRefreshing];
         }
     }];
 }
