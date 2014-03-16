@@ -27,8 +27,10 @@
 }
 
 - (void) renderData {
-    [self.navigationController showSGProgressWithDuration:10];
+    // set the navbar title
     self.title = self.movie.title;
+    
+    [self.navigationController showSGProgressWithDuration:10];
     
     self.synopsisLabel.text = self.movie.synopsis;
     self.castLabel.text = self.movie.castText;
