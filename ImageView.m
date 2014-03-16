@@ -61,9 +61,7 @@
                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                      self.image = image;
                                      NSError *error = nil;
-                                     [UIImageJPEGRepresentation(image, 0.8) writeToFile:filePath
-                                                                          options:NSDataWritingAtomic
-                                                                            error:&error];
+                                     [UIImageJPEGRepresentation(image, 0.8) writeToFile:filePath options:NSDataWritingAtomic error:&error];
                                      if (error) {
                                          NSLog(@"Error saving image: %@", error);
                                      }
