@@ -53,6 +53,16 @@
     return [self.movies count];
 }
 
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+//    NSLog(@"tapped on row: %ld", indexPath.row);
+}
+
+// Tap on row accessory
+- (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
+//    NSLog(@"tapped on row: %ld", indexPath.row);
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"MovieCell";
     MovieCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
