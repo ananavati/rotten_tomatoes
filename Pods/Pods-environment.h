@@ -48,27 +48,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 2
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
-// MBProgressHUD
-#define COCOAPODS_POD_AVAILABLE_MBProgressHUD
-#define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
-#define COCOAPODS_VERSION_MINOR_MBProgressHUD 8
-#define COCOAPODS_VERSION_PATCH_MBProgressHUD 0
-
-// NJKWebViewProgress
-#define COCOAPODS_POD_AVAILABLE_NJKWebViewProgress
-#define COCOAPODS_VERSION_MAJOR_NJKWebViewProgress 0
-#define COCOAPODS_VERSION_MINOR_NJKWebViewProgress 2
-#define COCOAPODS_VERSION_PATCH_NJKWebViewProgress 2
-
-// NJKWebViewProgress/Core
-#define COCOAPODS_POD_AVAILABLE_NJKWebViewProgress_Core
-#define COCOAPODS_VERSION_MAJOR_NJKWebViewProgress_Core 0
-#define COCOAPODS_VERSION_MINOR_NJKWebViewProgress_Core 2
-#define COCOAPODS_VERSION_PATCH_NJKWebViewProgress_Core 2
-
-// NJKWebViewProgress/ProgressView
-#define COCOAPODS_POD_AVAILABLE_NJKWebViewProgress_ProgressView
-#define COCOAPODS_VERSION_MAJOR_NJKWebViewProgress_ProgressView 0
-#define COCOAPODS_VERSION_MINOR_NJKWebViewProgress_ProgressView 2
-#define COCOAPODS_VERSION_PATCH_NJKWebViewProgress_ProgressView 2
+// SGNavigationProgress
+#define COCOAPODS_POD_AVAILABLE_SGNavigationProgress
+#define COCOAPODS_VERSION_MAJOR_SGNavigationProgress 1
+#define COCOAPODS_VERSION_MINOR_SGNavigationProgress 1
+#define COCOAPODS_VERSION_PATCH_SGNavigationProgress 0
 

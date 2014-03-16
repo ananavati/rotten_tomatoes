@@ -12,7 +12,6 @@
 
 @property (strong, nonatomic) NSMutableArray *movies;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) MBProgressHUD *hud;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -80,7 +79,7 @@
 }
 
 -(void) getData {
-    self.hud = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+    [self.navigationController showSGProgressWithDuration:3];
     
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=87mrtv95egu4cfx6s6x9yqm8";
     
@@ -89,7 +88,7 @@
         
         if (connectionError) {
             // throw the network error popup
-            [self.hud hide:YES];
+            [self.navigationController finishSGProgress];
             [self.refreshControl endRefreshing];
             
             // show the network error in the navbar alert view
@@ -104,7 +103,8 @@
             
             [self.tableView reloadData];
             
-            [self.hud hide:YES];
+            [self.navigationController.navigationBar hideAlert];
+            [self.navigationController finishSGProgress];
             [self.refreshControl endRefreshing];
         }
     }];

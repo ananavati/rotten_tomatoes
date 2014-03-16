@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MBProgressHUD.h"
 #import "UINavigationBarAlert.h"
+#import "UINavigationController+SGProgress.h"
 
 #import "MovieCell.h"
 #import "Movie.h"
