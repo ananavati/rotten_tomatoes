@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Toast.xcscheme</key>
+		<key>Pods-NJKWebViewProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3AE4830FADF9485ABE8C64F9</key>
+		<key>006DF0EC4C99424FACCA9C6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3DFFA6CC72A542788B324D32</key>
+		<key>12BEAFA2B183468686405D88</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B034A3F3CD4F40A49E9156BE</key>
+		<key>94A92B56D6F549F384FC5E76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1D04A2003DF4C7AAF6C2DE5</key>
+		<key>FE6BD1D71E9D46D2AAD7CE70</key>
 		<dict>
 			<key>primary</key>
 			<true/>

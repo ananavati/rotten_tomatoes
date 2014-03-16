@@ -34,9 +34,9 @@
 
 -(void) initialize {
     self.movies = [[NSMutableArray alloc] init];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector( onRefresh:forState: ) forControlEvents:UIControlEventValueChanged];
-    
     // not sure if this is the right way to add refresh control
     [self.tableView addSubview:self.refreshControl];
     
@@ -89,19 +89,24 @@
         
         if (connectionError) {
             // throw the network error popup
+            [self.hud hide:YES];
+            [self.refreshControl endRefreshing];
+            
+            // show the network error in the navbar alert view
+            [self.navigationController.navigationBar showAlertWithTitle:@"Network Error"];
+        } else {
+            NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            [self.movies removeAllObjects];
+            
+            for (NSDictionary *movie in movies[@"movies"]) {
+                [self.movies addObject:[[Movie alloc] initWithDictionary:movie]];
+            };
+            
+            [self.tableView reloadData];
+            
+            [self.hud hide:YES];
+            [self.refreshControl endRefreshing];
         }
-        
-        NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        [self.movies removeAllObjects];
-        
-        for (NSDictionary *movie in movies[@"movies"]) {
-            [self.movies addObject:[[Movie alloc] initWithDictionary:movie]];
-        };
-        
-        [self.tableView reloadData];
-        
-        [self.hud hide:YES];
-		[self.refreshControl endRefreshing];
     }];
 }
 

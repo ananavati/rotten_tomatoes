@@ -26,6 +26,8 @@
 		17039BF318D44349007DECB4 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF218D44349007DECB4 /* Movie.m */; };
 		17039BF518D4EBBA007DECB4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 17039BF418D4EBBA007DECB4 /* Podfile */; };
 		17039BF818D509FA007DECB4 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BF718D509FA007DECB4 /* ImageView.m */; };
+		17039BFF18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BFC18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m */; };
+		17039C0018D567E0007DECB4 /* UINavigationBarAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 17039BFE18D567E0007DECB4 /* UINavigationBarAlert.m */; };
 		CA30FAECE37849098FAE3EAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233F606B44849F89E0200DF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,9 +67,13 @@
 		17039BEF18D43E50007DECB4 /* MovieListCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieListCellView.xib; sourceTree = "<group>"; };
 		17039BF118D44349007DECB4 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		17039BF218D44349007DECB4 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		17039BF418D4EBBA007DECB4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		17039BF418D4EBBA007DECB4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		17039BF618D509FA007DECB4 /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
 		17039BF718D509FA007DECB4 /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
+		17039BFB18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+UINavigationBarAlert.h"; sourceTree = "<group>"; };
+		17039BFC18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+UINavigationBarAlert.m"; sourceTree = "<group>"; };
+		17039BFD18D567E0007DECB4 /* UINavigationBarAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationBarAlert.h; sourceTree = "<group>"; };
+		17039BFE18D567E0007DECB4 /* UINavigationBarAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationBarAlert.m; sourceTree = "<group>"; };
 		A1D53469098F4D79BE3371A4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,10 +219,23 @@
 		17039BF918D50D17007DECB4 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				17039BFA18D567E0007DECB4 /* UINavigationBarAlert */,
 				17039BF618D509FA007DECB4 /* ImageView.h */,
 				17039BF718D509FA007DECB4 /* ImageView.m */,
 			);
 			name = lib;
+			sourceTree = "<group>";
+		};
+		17039BFA18D567E0007DECB4 /* UINavigationBarAlert */ = {
+			isa = PBXGroup;
+			children = (
+				17039BFB18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.h */,
+				17039BFC18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m */,
+				17039BFD18D567E0007DECB4 /* UINavigationBarAlert.h */,
+				17039BFE18D567E0007DECB4 /* UINavigationBarAlert.m */,
+			);
+			name = UINavigationBarAlert;
+			path = ../UINavigationBarAlert/UINavigationBarAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +375,9 @@
 				17039BF818D509FA007DECB4 /* ImageView.m in Sources */,
 				17039B8018D3FEC7007DECB4 /* main.m in Sources */,
 				17039BF318D44349007DECB4 /* Movie.m in Sources */,
+				17039C0018D567E0007DECB4 /* UINavigationBarAlert.m in Sources */,
 				17039BED18D4260E007DECB4 /* MovieCell.m in Sources */,
+				17039BFF18D567E0007DECB4 /* UINavigationBar+UINavigationBarAlert.m in Sources */,
 				17039BA918D4001D007DECB4 /* MoviesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

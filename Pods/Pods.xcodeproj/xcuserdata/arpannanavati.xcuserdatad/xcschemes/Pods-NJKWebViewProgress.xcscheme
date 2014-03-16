@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3DFFA6CC72A542788B324D32"
-               BuildableName = "libPods-Toast.a"
-               BlueprintName = "Pods-Toast"
+               BlueprintIdentifier = "006DF0EC4C99424FACCA9C6A"
+               BuildableName = "libPods-NJKWebViewProgress.a"
+               BlueprintName = "Pods-NJKWebViewProgress"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "MBProgressHUD.h"
-#import "Toast+UIView.h"
+#import "UINavigationBarAlert.h"
 
 #import "MovieCell.h"
 #import "Movie.h"
