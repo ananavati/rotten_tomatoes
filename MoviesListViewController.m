@@ -72,7 +72,7 @@
     self.searchBar.showsCancelButton = YES;
     self.searchBar.placeholder = @"Search Movies...";
     [self.searchBar sizeToFit];
-    self.tableView.tableHeaderView = self.searchBar;
+    self.navigationItem.titleView = self.searchBar;
     
     for (UIView *view in self.searchBar.subviews)
     {
@@ -81,7 +81,6 @@
             if ( [subview isKindOfClass:[UIButton class]] )
             {
                 [subview setEnabled:YES];
-                NSLog(@"enableCancelButton");
                 return;
             }
         }
@@ -90,15 +89,15 @@
 }
 
 - (void) hideSearchBar {
-    self.tableView.tableHeaderView = nil;
+    self.navigationItem.titleView = nil;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    self.searchResults = nil;
-    [self.tableView reloadData];
-    
     [self.searchBar resignFirstResponder];
     [self hideSearchBar];
+    
+    self.searchResults = nil;
+    [self.tableView reloadData];
 }
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -239,7 +238,7 @@
 }
 
 -(void) getData: (NSString *) searchString {
-    [self.navigationController showSGProgressWithDuration:3];
+    [self.navigationController showSGProgressWithDuration:10];
     
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=87mrtv95egu4cfx6s6x9yqm8";
     
