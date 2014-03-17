@@ -45,6 +45,7 @@
 }
 
 - (void)onRefresh:(id)sender forState:(UIControlState)state {
+    self.searchResults = nil;
     [self.refreshControl endRefreshing];
     
     [self getData:nil];
@@ -72,14 +73,27 @@
     self.searchBar.placeholder = @"Search Movies...";
     [self.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchBar;
+    
+    for (UIView *view in self.searchBar.subviews)
+    {
+        for (id subview in view.subviews)
+        {
+            if ( [subview isKindOfClass:[UIButton class]] )
+            {
+                [subview setEnabled:YES];
+                NSLog(@"enableCancelButton");
+                return;
+            }
+        }
+    }
+//    [self.searchBar becomeFirstResponder];
 }
 
 - (void) hideSearchBar {
     self.tableView.tableHeaderView = nil;
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     self.searchResults = nil;
     [self.tableView reloadData];
     
@@ -105,16 +119,9 @@
         self.firstContentOffset = currentOffset;
     }
     
-    if (currentOffset.y > self.lastContentOffset.y){
-        scrollDirection = ScrollDirectionUp;
-        
-        // show search bar if scroll y is within 10px;
-        if((currentOffset.y - self.firstContentOffset.y) > 10 ) {
-            [self hideSearchBar];
-        }
-    } else {
+    if (currentOffset.y < self.lastContentOffset.y){
         scrollDirection = ScrollDirectionDown;
-
+        
         // show search bar if scroll y is within 5px;
         if((self.firstContentOffset.y - currentOffset.y) > 40 ) {
             [self showSearchBar];
