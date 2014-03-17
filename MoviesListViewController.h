@@ -16,7 +16,7 @@
 #import "ImageView.h"
 #import "MovieDetailsViewController.h"
 
-@interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 
 @end
 

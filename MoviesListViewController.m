@@ -11,6 +11,9 @@
 @interface MoviesListViewController()
 
 @property (strong, nonatomic) NSMutableArray *movies;
+
+@property (strong, nonatomic) NSMutableArray *searchResults;
+
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) UISearchBar *searchBar;
 
@@ -18,6 +21,7 @@
 @property (assign, nonatomic) CGPoint firstContentOffset;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UISearchBar *uiSearchBar;
 
 - (void)onRefresh:(id)sender forState:(UIControlState)state;
 
@@ -26,6 +30,10 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:0.5]
 
 @implementation MoviesListViewController
+
+- (void) didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,11 +57,20 @@
     [self initialize];
 }
 
+- (void) searchData {
+    self.searchResults = nil;
+    NSPredicate *resultsPredicate = [NSPredicate predicateWithFormat:@"title contains[cd] %@", self.searchBar.text];
+    self.searchResults = [[self.movies filteredArrayUsingPredicate:resultsPredicate] mutableCopy];
+    
+    [self.tableView reloadData];
+}
+
 - (void) showSearchBar {
     UISearchBar *tempSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
     self.searchBar = tempSearchBar;
     self.searchBar.delegate = self;
     self.searchBar.showsCancelButton = YES;
+    self.searchBar.placeholder = @"Search Movies...";
     [self.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchBar;
 }
@@ -67,6 +84,14 @@
     [self.searchBar resignFirstResponder];
     [self hideSearchBar];
 }
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self searchData];
+}
+
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    [self searchData];
+//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -105,7 +130,6 @@
     }
 }
 
-
 -(void) initialize {
     self.movies = [[NSMutableArray alloc] init];
     
@@ -125,7 +149,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.movies count];
+    
+    if (self.searchResults.count > 0) {
+        return self.searchResults.count;
+    } else {
+        return [self.movies count];
+    }
 }
 
 // Tap on table Row
@@ -171,8 +200,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"MovieCell";
     MovieCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    Movie *movie;
     
-    Movie *movie = self.movies[indexPath.row];
+    if (self.searchResults.count > 0) {
+        movie = self.searchResults[indexPath.row];
+    } else {
+        movie = self.movies[indexPath.row];
+    }
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:movie.thumbUrl, indexPath.row]];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
