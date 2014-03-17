@@ -125,6 +125,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    self.searchResults = nil;
     [self.tableView reloadData];
     
     NSArray *cells = [self.tableView visibleCells];
