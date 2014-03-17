@@ -16,6 +16,15 @@
 #import "ImageView.h"
 #import "MovieDetailsViewController.h"
 
-@interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface MoviesListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end
+
+typedef enum ScrollDirection {
+    ScrollDirectionNone,
+    ScrollDirectionRight,
+    ScrollDirectionLeft,
+    ScrollDirectionUp,
+    ScrollDirectionDown,
+    ScrollDirectionCrazy,
+} ScrollDirection;

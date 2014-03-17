@@ -12,6 +12,10 @@
 
 @property (strong, nonatomic) NSMutableArray *movies;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UISearchBar *searchBar;
+
+@property (assign, nonatomic) CGPoint lastContentOffset;
+@property (assign, nonatomic) CGPoint firstContentOffset;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -43,6 +47,52 @@
     [super viewDidLoad];
     
     [self initialize];
+}
+
+- (void) showSearchBar {
+    UISearchBar *tempSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 0)];
+    self.searchBar = tempSearchBar;
+    self.searchBar.delegate = self;
+    self.searchBar.showsCancelButton = YES;
+    [self.searchBar sizeToFit];
+    self.tableView.tableHeaderView = self.searchBar;
+}
+
+- (void) hideSearchBar {
+    self.tableView.tableHeaderView = nil;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    [self hideSearchBar];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    ScrollDirection scrollDirection;
+    CGPoint currentOffset = scrollView.contentOffset;
+    if(self.firstContentOffset.y == 0) {
+        self.firstContentOffset = currentOffset;
+    }
+    
+    if (currentOffset.y > self.lastContentOffset.y){
+        scrollDirection = ScrollDirectionUp;
+        
+        // show search bar if scroll y is within 10px;
+        if((currentOffset.y - self.firstContentOffset.y) > 10 ) {
+            [self hideSearchBar];
+        }
+    } else {
+        scrollDirection = ScrollDirectionDown;
+
+        // show search bar if scroll y is within 5px;
+        if((self.firstContentOffset.y - currentOffset.y) > 40 ) {
+            [self showSearchBar];
+        }
+    }
+    
+    self.lastContentOffset = scrollView.contentOffset;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
