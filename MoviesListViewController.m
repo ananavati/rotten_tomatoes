@@ -21,7 +21,6 @@
 @property (assign, nonatomic) CGPoint firstContentOffset;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UISearchBar *uiSearchBar;
 
 - (void)onRefresh:(id)sender forState:(UIControlState)state;
 
@@ -48,7 +47,7 @@
 - (void)onRefresh:(id)sender forState:(UIControlState)state {
     [self.refreshControl endRefreshing];
     
-    [self getData];
+    [self getData:nil];
 }
 
 - (void) viewDidLoad {
@@ -81,6 +80,9 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    self.searchResults = nil;
+    [self.tableView reloadData];
+    
     [self.searchBar resignFirstResponder];
     [self hideSearchBar];
 }
@@ -89,11 +91,13 @@
     [self searchData];
 }
 
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-//    [self searchData];
-//}
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    if (!self.searchResults.count) {
+        [self getData:self.searchBar.text];
+    }
+}
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
     ScrollDirection scrollDirection;
     CGPoint currentOffset = scrollView.contentOffset;
@@ -141,7 +145,7 @@
     UINib *movieCellNib = [UINib nibWithNibName:@"MovieListCellView" bundle:nil];
     [self.tableView registerNib:movieCellNib forCellReuseIdentifier:@"MovieCell"];
     
-    [self getData];
+    [self getData:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -159,7 +163,6 @@
 
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-//    NSLog(@"tapped on row: %ld", indexPath.row);
     NSArray *cells = [self.tableView visibleCells];
     
     UITableViewCell *currentcell = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -227,10 +230,17 @@
     return cell;
 }
 
--(void) getData {
+-(void) getData: (NSString *) searchString {
     [self.navigationController showSGProgressWithDuration:3];
     
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=87mrtv95egu4cfx6s6x9yqm8";
+    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=87mrtv95egu4cfx6s6x9yqm8";
+    
+    // if the search results from the local memory were 0 make an api search call.
+    if ([searchString length] > 0) {
+        url = @"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=87mrtv95egu4cfx6s6x9yqm8&q=";
+        url = [url stringByAppendingString:searchString];
+        url = [url stringByAppendingString:@"&page_limit=10"];
+    }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
