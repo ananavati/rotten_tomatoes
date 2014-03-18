@@ -192,10 +192,15 @@
                              }
                              completion:^(BOOL finished) {
                                  MovieDetailsViewController *detailsController = [[MovieDetailsViewController alloc] init];
+                                 Movie *movie;
                                  
-                                 Movie *movie = self.movies[indexPath.row];
+                                 if (self.searchResults.count > 0) {
+                                     movie = self.searchResults[indexPath.row];
+                                 } else {
+                                     movie = self.movies[indexPath.row];
+                                 }
+                                 
                                  [detailsController setMovie:movie];
-                                 
                                  [self.navigationController pushViewController:detailsController animated:YES];
                              }];
         }
@@ -261,12 +266,20 @@
             [self.navigationController.navigationBar showAlertWithTitle:@"Network Error"];
         } else {
             NSDictionary *movies = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            [self.movies removeAllObjects];
-            
-            for (NSDictionary *movie in movies[@"movies"]) {
-                [self.movies addObject:[[Movie alloc] initWithDictionary:movie]];
-            };
-            
+            if (searchString) {
+                [self.searchResults removeAllObjects];
+                
+                for (NSDictionary *movie in movies[@"movies"]) {
+                    [self.searchResults addObject:[[Movie alloc] initWithDictionary:movie]];
+                };
+            } else {
+                [self.movies removeAllObjects];
+                
+                for (NSDictionary *movie in movies[@"movies"]) {
+                    [self.movies addObject:[[Movie alloc] initWithDictionary:movie]];
+                };
+            }
+
             [self.tableView reloadData];
             
             [self.navigationController.navigationBar hideAlert];
