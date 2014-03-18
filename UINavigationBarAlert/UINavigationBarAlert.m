@@ -22,7 +22,7 @@
         self.titleColor = color;
         
         // Lower alpha to make it transparant
-        self.alpha = 0.8;
+        self.alpha = 0.95;
         
         // Set autoresizing
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
