@@ -23,7 +23,14 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(done)];
+    self.navigationItem.rightBarButtonItem = closeButton;
+    
     [self render];
+}
+
+- (void) done {
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 - (void) render {
